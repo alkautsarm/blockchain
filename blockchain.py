@@ -29,7 +29,6 @@ class Blockchain:
 		parsed_url = urlparse(address)
 		if parsed_url.netloc:
 			self.nodes.add(parsed_url.netloc)
-			print('register atas nama ->', parsed_url.netloc)
 		elif parsed_url.path:
 			# Accepts an URL without scheme like '192.168.0.5:5000'.
 			self.nodes.add(parsed_url.path)
@@ -83,8 +82,6 @@ class Blockchain:
 
 		# Grab and verify the chains from all the nodes in our network
 		for node in neighbours:
-			print('NODE KITA  ADALAH ->', node)
-			print('NEIGHBOOR KITA  ADALAH ->', neighbours)
 			#response = requests.get(f'http://{node}/chain')
 			response = requests.get('http://%s/chain'%(node))
 
